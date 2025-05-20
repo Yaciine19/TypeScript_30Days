@@ -35,22 +35,8 @@
       src="https://fastly.picsum.photos/id/6/800/500.jpg?hmac=6HhnDVQ_7IdnBM72Wit9Rqxc4FhShcoAmJlBx64Z_3w"
     />
 
-    <script>
-      const inputs = document.querySelectorAll(".controls input");
-
-      function handleChange() {
-        const suffix = this.dataset.sizing || "";
-
-        document.documentElement.style.setProperty(
-          `--${this.name}`,
-          this.value + suffix
-        );
-      }
-
-      inputs.forEach((input) => input.addEventListener("change", handleChange));
-      inputs.forEach((input) =>
-        input.addEventListener("mousemove", handleChange)
-      );
+    <script src="dist/main.JS">
+      
     </script>
 
     <style>
