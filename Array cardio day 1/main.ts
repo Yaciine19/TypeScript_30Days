@@ -1,4 +1,11 @@
-const names = [
+type Inventor = {
+  first: string, 
+  last: string,
+  year: number,
+  passed: number
+}
+
+const names: string[] = [
   "Adam", "Sophie", "Lina", "Karim", "Nour", "Amine", "Sarah", "Omar", "Aya", "Rania",
   "Youssef", "Jana", "Mounir", "Dalia", "Hassan", "Leila", "Tariq", "Imane", "Rachid", "Malak",
   "Khaled", "Salma", "Bilal", "Nadia", "Anis", "Fatima", "Hamza", "Rita", "Ali", "Yasmina",
@@ -6,7 +13,7 @@ const names = [
   "Walid", "Sara", "Fouad", "Meriem", "Ismail", "Nada", "Reda", "Kenza", "Hicham", "Soukaina"
 ];
 
-const inventors = [
+const inventors: Inventor[] = [
   { first: "Albert", last: "Einstein", year: 1879, passed: 1955 },
   { first: "Isaac", last: "Newton", year: 1643, passed: 1727 },
   { first: "Nikola", last: "Tesla", year: 1856, passed: 1943 },
@@ -21,12 +28,12 @@ const inventors = [
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
-const inventorsBornIn1500s = inventors.filter(inventor => inventor.year >= 1500 && inventor.year < 1600);
+const inventorsBornIn1500s: Inventor[] = inventors.filter(inventor => inventor.year >= 1500 && inventor.year < 1600);
 console.table(inventorsBornIn1500s);
 
 // Array.prototype.map()
 // 2. Give us an array of the inventory first and last names
-const inventoriesFullName = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+const inventoriesFullName: string[] = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
 console.log(inventoriesFullName);
 
 // Array.prototype.sort()
@@ -35,7 +42,7 @@ console.table(inventors.sort((a, b) => a.year - b.year));
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live?
-const totalYears = inventors.reduce((total, inventor) => {
+const totalYears: number = inventors.reduce((total, inventor) => {
     return total + (inventor.passed - inventor.year);
 }, 0);
 console.log(totalYears);
@@ -47,12 +54,13 @@ console.table(inventors.sort((a, b) => (b.passed - b.year) - (a.passed - a.year)
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
 // 7. Sum up the instances of each of these
-const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+const data: string[] = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
 
-console.log(data.reduce((obj, item) => {
+const resulta = data.reduce((obj: {[key: string]: number}, item: string) => {
     if(!obj[item]) {
         obj[item] = 0;
     }
     obj[item]++;
     return obj;
-}, {}))
+}, {} as {[key: string]: number});
+console.log(resulta);
